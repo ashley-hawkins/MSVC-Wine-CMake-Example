@@ -8,12 +8,14 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-LLVM_ROOT="${LLVM_ROOT:-/usr/lib/llvm-19}"
+LLVM_ROOT="${LLVM_ROOT:-$(realpath $(which clang))}"
+echo "LLVM root: ${LLVM_ROOT}"
 BIN="${BIN:-$HOME/.msvc/bin/x64}"
+echo "BIN: ${BIN}"
 
 . "$BIN/msvcenv.sh"
 
-TOOLCHAIN="$DIR/cmake/MsvcenvNativeCl.cmake"
+TOOLCHAIN="$DIR/cmake/MsvcenvNative${FLAVOR:-Cl}.cmake"
 
 ARCH=$ARCH \
 LLVM_ROOT=$LLVM_ROOT \
