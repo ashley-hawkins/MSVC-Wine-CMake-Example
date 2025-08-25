@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: © 2025 Ashley Hawkins <awhawkins@proton.me>
+SPDX-License-Identifier: CC-BY-2.0
+-->
+
 # Msvc-Wine CMake Example
 
 This is a repo to show an example of using a CMake toolchain file in order to use [@mstorsjo](https://github.com/mstorsjo)'s MSVC-Wine with CMake using your system-native Clang.

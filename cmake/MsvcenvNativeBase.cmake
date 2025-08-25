@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: © 2025 Ashley Hawkins <awhawkins@proton.me>
-# SPDX-License-Identifier: LGPL-3.0-only
+# SPDX-License-Identifier: CC0-1.0
 
 if (DEFINED ENV{LLVM_ROOT} AND NOT DEFINED LLVM_ROOT)
     set(LLVM_ROOT "$ENV{LLVM_ROOT}" CACHE PATH "Path to LLVM installation")
