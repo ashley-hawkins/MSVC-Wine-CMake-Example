@@ -22,8 +22,9 @@ BIN="${BIN:-$HOME/.msvc/bin/x64}"
 
 . "$BIN/msvcenv.sh"
 
-TOOLCHAIN="$DIR/cmake/MsvcenvNative${FLAVOR:-Cl}.cmake"
+TOOLCHAIN="$DIR/cmake/MsvcenvNative.cmake"
 
+FLAVOR=${FLAVOR:-cl} \
 ARCH=$ARCH \
 LLVM_ROOT=$LLVM_ROOT \
 cmake -DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN "$@"
