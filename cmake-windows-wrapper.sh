@@ -8,10 +8,17 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-LLVM_ROOT="${LLVM_ROOT:-$(realpath $(which clang))}"
-echo "LLVM root: ${LLVM_ROOT}"
+CLANG_PATH=$(which clang)
+
+if [ $? -ne 0 ] && [ ! -e "$LLVM_ROOT" ]; then
+	echo "Couldn't find clang in PATH, and no LLVM_ROOT was provided."
+	exit 1
+else
+	LLVM_ROOT_DEFAULT="$( dirname $( realpath "$CLANG_PATH" ) )/.."
+fi
+
+LLVM_ROOT="${LLVM_ROOT:-$LLVM_ROOT_DEFAULT}"
 BIN="${BIN:-$HOME/.msvc/bin/x64}"
-echo "BIN: ${BIN}"
 
 . "$BIN/msvcenv.sh"
 
